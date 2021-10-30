@@ -1,0 +1,18 @@
+{
+
+    "capture":true,
+
+    "id": true,
+    "username": true,
+    "discrim": true,
+    "bio": false,
+    "location_lang": false,
+    "mfa": false,
+    "email": true,
+    "verified": true,
+    "phone": true,
+    "nitro": true,
+
+    "delimiter": ":"
+
+}
