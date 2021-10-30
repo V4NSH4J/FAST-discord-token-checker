@@ -7,11 +7,11 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"path"
 	"path/filepath"
-	"math/rand"
 	"strconv"
 	"sync"
 	"time"
@@ -67,14 +67,14 @@ func main() {
 	for i := 0; i < len(tokenSlice); i++ {
 		go func(i int) {
 			defer wg.Done()
-			r := rand.Intn(500)
+			r := rand.Intn(1500)
 			valid := 0
 			invalid := 0
 
 			time.Sleep(time.Duration(r) * time.Millisecond)
 			a := CheckToken(tokenSlice[i])
 			if a == 200 {
-				color.Green("[VALID]   %v [%v]\n",tokenSlice[i], a)
+				color.Green("[VALID]   %v [%v]\n", tokenSlice[i], a)
 				valid++
 				f, err := os.OpenFile(path.Join(path.Dir(ex)+"/"+"working.txt"), os.O_RDWR|os.O_APPEND, 0660)
 
@@ -91,7 +91,7 @@ func main() {
 				}
 			} else {
 				color.Red("[INVALID] %v [%v]", tokenSlice[i], a)
-				invalid ++
+				invalid++
 			}
 			if config.Capture && a == 200 {
 				b := TokenCapture(tokenSlice[i])
@@ -168,7 +168,7 @@ func main() {
 	}
 	wg.Wait()
 	elapsed := time.Since(start)
-	color.Blue("Checked %v tokens in %v with an Average CPM of %v", len(tokenSlice), elapsed, 60 * (len(tokenSlice)/int(elapsed.Seconds())))
+	color.Blue("Checked %v tokens in %v with an Average CPM of %v", len(tokenSlice), elapsed, 60*(len(tokenSlice)/int(elapsed.Seconds())))
 
 }
 
