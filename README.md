@@ -8,6 +8,8 @@
  
  ## Disclaimer ⚠️
  The automation of User Discord accounts also known as self-bots is a violation of Discord Terms of Service & Community guidelines and will result in your account(s) being terminated. Discretion is adviced. I will not be responsible for your actions. 
+ ## Star the Repo ⭐
+ Please star the repo, it really helps me out and allows me to contribute more.
  
  ## Features ✅
  - Fastest account checker made possibly by GO's Goroutines and efficient requests [20K+ CPM]
