@@ -44,10 +44,13 @@ Notice that the token has 2 dots which divides the token into 3 segments. The fi
 This image from discord API documentation very well explains how a snowflake can be converted to give the timestamp of creation. So in essence, a discord token is just an account's creation date, some internal process IDs and a bunch of random stuff thrown together. If someone does try to make a token generator for fun, the generated tokens should match this syntax or it can never give a valid token ever.
  
 ## Other interesting stuff by me
-(Discord Invite Joiner)[https://github.com/V4NSH4J/discord-inviter-GO] - Joins given tokens to a server
-(Discord Token Checker)[https://github.com/V4NSH4J/FAST-discord-token-checker] - Checks given tokens and records their information
-(Discord Mass DM)[https://github.com/V4NSH4J/discord-mass-DM-GO] - DMs all users of a server or DM's a discord user from multiple accounts
-(Dankgrinder)[https://github.com/V4NSH4J/dankgrinder] - An Advanced automation tool for Dankmemer
+[Discord Invite Joiner](https://github.com/V4NSH4J/discord-inviter-GO) - Joins given tokens to a server
+
+[Discord Token Checker](https://github.com/V4NSH4J/FAST-discord-token-checker) - Checks given tokens and records their information
+
+[Discord Mass DM](https://github.com/V4NSH4J/discord-mass-DM-GO) - DMs all users of a server or DM's a discord user from multiple accounts
+
+[Dankgrinder](https://github.com/V4NSH4J/dankgrinder) - An Advanced automation tool for Dankmemer
  
  ## Donations 🪙
 I spend quite a lot of time in making High Quality & Open Source discord tools because hundreds of people get ripped-off everyday searching for this stuff. If this helped you out even in the slightest, Buy me a coffee and make my day! 
