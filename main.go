@@ -32,6 +32,7 @@ func main() {
 	type Config struct {
 		Capture    bool   `json:"capture"`
 		ID         bool   `json:"id"`
+		Avatar     bool   `json:"avatar"`
 		Username   bool   `json:"username"`
 		Discrim    bool   `json:"discrim"`
 		Bio        bool   `json:"bio"`
@@ -67,7 +68,7 @@ func main() {
 	for i := 0; i < len(tokenSlice); i++ {
 		go func(i int) {
 			defer wg.Done()
-			r := rand.Intn(1500)
+			r := rand.Intn(len(tokenSlice))
 			valid := 0
 			invalid := 0
 
@@ -148,6 +149,19 @@ func main() {
 					}
 
 				}
+				if config.Avatar {
+					if b.Avatar == "" {
+						c = c + config.Delimiiter + "No Avatar"
+					} else {
+						if string(b.Avatar[0]) == "a" && string(b.Avatar[1]) == "_" {
+							c = c + config.Delimiiter + "https://cdn.discordapp.com/avatars/" + b.ID + "/" + b.Avatar + ".gif"
+
+						} else {
+							c = c + config.Delimiiter + "https://cdn.discordapp.com/avatars/" + b.ID + "/" + b.Avatar + ".png"
+
+						}
+					}
+				}
 				f, err := os.OpenFile(path.Join(path.Dir(ex)+"/"+"capture.txt"), os.O_RDWR|os.O_APPEND, 0660)
 
 				if err != nil {
@@ -168,7 +182,9 @@ func main() {
 	}
 	wg.Wait()
 	elapsed := time.Since(start)
-	color.Blue("Checked %v tokens in %v with an Average CPM of %v", len(tokenSlice), elapsed, 60*(len(tokenSlice)/int(elapsed.Seconds())))
+	color.Blue("Checked %v tokens in %v with an Average CPM of %v", len(tokenSlice), elapsed, 60.0*float64(len(tokenSlice))/(elapsed.Seconds()))
+	color.Red("Press ENTER to EXIT")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
 
 }
 

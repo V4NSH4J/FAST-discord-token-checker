@@ -5,13 +5,14 @@
     "id": true,
     "username": true,
     "discrim": true,
-    "bio": false,
-    "location_lang": false,
-    "mfa": false,
+    "bio": true,
+    "location_lang": true,
+    "mfa": true,
     "email": true,
     "verified": true,
     "phone": true,
     "nitro": true,
+    "avatar": true,
 
     "delimiter": ":"
 
